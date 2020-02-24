@@ -1,27 +1,78 @@
 .App {
   display: grid;
-  grid-template-rows: 15% 85%;
+  grid-template-rows: [row1-start] 15% [row1-end row2-start] 85% [row2-end];
   grid-template-areas: "header" "body";
   text-align: center;
 }
 
 .Header {
+  grid-column-start: [row1-start];
+  grid-column-end: [row1-end];
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: space-around;
 
   font-size: 1em;
   font-weight: normal;
   text-decoration: none;
   background-color: lightcyan;
-  padding: 8%;
+  padding: 3%;
   width: 100%;
   position: fixed;
 }
 
 .home-link {
-  color: black;
   font-size: 2em;
   font-family: Sahitya;
+}
+
+.topics-nav {
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.login-header-container {
+  font-weight: normal;
+  background-color: lightseagreen;
+  margin-left: 1%;
+  width: 5em;
+  height: 1.5em;
+  border: thin;
+  border-color: lightseagreen;
+  border-radius: 15%;
+  position: relative;
+}
+
+.login-header-container:hover {
+  font-weight: bold;
+  border: black;
+  border-width: thick;
+}
+
+.login-list-container {
+  position: relative;
+  background-color: pink;
+  position: relative;
+}
+
+.login-list-items {
+  background-color: pink;
   color: black;
+  position: relative;
+}
+
+.login-list-item:hover {
+  background-color: pink;
+  color: black;
+  font-weight: bolder;
+}
+
+.logOut:hover {
+  color: black;
+  font-weight: bolder;
 }
