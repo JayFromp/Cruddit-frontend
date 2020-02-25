@@ -1,7 +1,9 @@
 import React from "react";
 import Header from "./components/header-components/Header";
 import AllArticles from "./components/article-components/All-articles";
+import SingleArticle from "./components/article-components/Single-article";
 import { getUsers } from "./api-requests";
+import { Router } from "@reach/router";
 import "./App.css";
 
 class App extends React.Component {
@@ -23,7 +25,12 @@ class App extends React.Component {
           selectUser={this.selectUser}
           selectedUser={selectedUser}
         />
-        <AllArticles />
+        <Router>
+          <AllArticles path="/" />
+          <AllArticles path="/articles/topics/:topic_slug" />
+          <AllArticles path="/articles/authors/:author" />
+          <SingleArticle path="/articles/:article_id" />
+        </Router>
       </div>
     );
   }
@@ -52,5 +59,4 @@ class App extends React.Component {
 
 export default App;
 
-// app needs to bring in all users
-// login dropdown
+//Not found page - default

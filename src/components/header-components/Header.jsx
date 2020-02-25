@@ -6,9 +6,9 @@ import LoggedInUser from "./LoggedIn-user";
 
 const Header = props => {
   const { users, selectUser, selectedUser, loggedIn, logOut } = props;
-  console.log(">>user<<", selectedUser);
+
   return (
-    <div className="Header">
+    <section className="Header">
       <Home />
       <TopicLinks />
       {loggedIn ? (
@@ -16,7 +16,7 @@ const Header = props => {
       ) : (
         <LoginDropDown users={users} selectUser={selectUser} />
       )}
-    </div>
+    </section>
   );
 };
 

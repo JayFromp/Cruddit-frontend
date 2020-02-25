@@ -4,14 +4,14 @@ const LoggedInUser = props => {
   const { user, logOut } = props;
 
   return (
-    <div>
+    <section>
       hello {user.user}
       <p>
-        <div className="logOut" onClick={() => logOut()}>
+        <button className="logOut" onClick={() => logOut()}>
           log out
-        </div>
+        </button>
       </p>
-    </div>
+    </section>
   );
 };
 

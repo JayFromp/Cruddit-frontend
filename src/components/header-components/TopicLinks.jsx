@@ -11,13 +11,13 @@ const TopicLinks = props => {
         Coding{" "}
       </Link>
       <Link
-        to={"/articles/topics/coding"}
+        to={"/articles/topics/cooking"}
         style={{ textDecoration: "none", color: "grey" }}
       >
         Cooking{" "}
       </Link>
       <Link
-        to={"/articles/topics/coding"}
+        to={"/articles/topics/football"}
         style={{ textDecoration: "none", color: "grey" }}
       >
         Football
