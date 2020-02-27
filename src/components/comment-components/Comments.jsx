@@ -10,12 +10,19 @@ class Comments extends React.Component {
   };
   render() {
     const { comments } = this.state;
+    const { user, loggedIn } = this.props;
     return (
       <div>
-        <NewComment addComment={this.addComment} />
+        {loggedIn ? (
+          <NewComment addComment={this.addComment} user={user} />
+        ) : (
+          "Please log in to comment & vote"
+        )}
         <RenderComments
           comments={comments}
           deleteComment={this.deleteComment}
+          user={user}
+          loggedIn={loggedIn}
         />
       </div>
     );

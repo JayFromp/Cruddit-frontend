@@ -3,7 +3,7 @@ import React from "react";
 const Err = () => {
   return (
     <div className="error">
-      <main>That page doesn't exist. Sorry. </main>
+      <h1>That page doesn't exist. Sorry. </h1>
       <p>
         <img
           src="https://i.ytimg.com/vi/st6-DgWeuos/hqdefault.jpg"

@@ -2,7 +2,9 @@ import React from "react";
 import NewArticle from "./New-article";
 import ArticlesList from "./Article-list";
 import LoadingArticles from "./Loading-articles";
-// import Err from "../errors";
+import TopicCard from "../article-components/Topic-card";
+import UserCard from "./User-card";
+import Err from "../errors";
 import { getArticles, postArticle, removeArticle } from "../../api-requests";
 import SortDropdown from "./Sort-dropdown";
 
@@ -10,28 +12,39 @@ class AllArticles extends React.Component {
   state = {
     articles: null,
     loading: true,
-    err: null,
+    error: null,
     sort_by: null
   };
 
   render() {
-    const { user, loggedIn } = this.props;
-    const { articles, loading } = this.state;
+    const { user, loggedIn, topic_slug, author } = this.props;
+    const { articles, loading, error } = this.state;
+    if (error) return <Err />;
     return (
       <div className="all-articles">
+        {author && <UserCard />}
+        {topic_slug && <TopicCard />}
         {loggedIn ? (
-          <NewArticle user={user} addArticle={this.addArticle} />
+          <NewArticle
+            user={user}
+            addArticle={this.addArticle}
+            topic={topic_slug}
+          />
         ) : (
-          <div>Please log in to add an article</div>
+          <p className="please-login">Please log in to add an article & vote</p>
         )}
+
         {loading ? (
           <LoadingArticles />
         ) : (
           <ArticlesList
             articles={articles}
             deleteArticle={this.deleteArticle}
+            user={user}
+            loggedIn={loggedIn}
           />
         )}
+
         <SortDropdown sort={this.sortArticles} />
       </div>
     );
@@ -45,7 +58,7 @@ class AllArticles extends React.Component {
         this.setState({ loading: false, articles: allArticles });
       })
       .catch(err => {
-        console.log(err);
+        this.setState({ error: err });
       });
   }
 
@@ -58,7 +71,7 @@ class AllArticles extends React.Component {
           this.setState({ articles: allArticles, loading: false });
         })
         .catch(err => {
-          this.setState({ err });
+          this.setState({ error: err });
         });
     }
   }
@@ -86,24 +99,24 @@ class AllArticles extends React.Component {
         });
       })
       .catch(err => {
-        console.log(err);
+        this.setState({ error: err });
       });
   };
 
   deleteArticle = articleToDelete => {
-    // const user = this.props.user;
-    const { article_id, author } = articleToDelete;
+    const { article_id } = articleToDelete;
 
-    // if (user === author) {
-    removeArticle(article_id);
-    const articles = [...this.state.articles];
-    const remainingArticles = articles.filter(article => {
-      return article !== articleToDelete;
-    });
-    this.setState({ articles: remainingArticles });
-    // } else {
-    //   return <Err />;
-    // }
+    removeArticle(article_id)
+      .then(() => {
+        const articles = [...this.state.articles];
+        const remainingArticles = articles.filter(article => {
+          return article !== articleToDelete;
+        });
+        this.setState({ articles: remainingArticles });
+      })
+      .catch(err => {
+        this.setState({ error: err });
+      });
   };
 }
 

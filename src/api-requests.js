@@ -5,6 +5,9 @@ const getUsers = () => {
     .get(`https://jay-nc-news-api.herokuapp.com/api/users`)
     .then(({ data: { users } }) => {
       return users;
+    })
+    .catch(err => {
+      return err;
     });
 };
 
@@ -19,6 +22,9 @@ const getArticles = (sortValue, selectedTopic, selectedAuthor) => {
     })
     .then(({ data: { articles } }) => {
       return articles;
+    })
+    .catch(err => {
+      return err;
     });
 };
 
@@ -28,6 +34,9 @@ const getArticle = articleId => {
     .get(`https://jay-nc-news-api.herokuapp.com/api/articles/${articleId}`)
     .then(({ data: { article } }) => {
       return article;
+    })
+    .catch(err => {
+      return err;
     });
 };
 
@@ -37,6 +46,9 @@ const postArticle = article => {
     .then(({ data }) => {
       console.log("data", data);
       return data.newArticle[0];
+    })
+    .catch(err => {
+      return err;
     });
 };
 
@@ -60,6 +72,9 @@ const getComments = articleId => {
     )
     .then(({ data }) => {
       return data.comments;
+    })
+    .catch(err => {
+      return err;
     });
 };
 
@@ -73,30 +88,38 @@ const postComment = (articleId, newComment) => {
       return data.comment;
     })
     .catch(err => {
-      console.log(err);
+      return err;
     });
 };
 
 const patchCommentVotes = (comment_id, changeVoteBy) => {
-  axios
+  return axios
     .patch(
       `https://jay-nc-news-api.herokuapp.com/api/comments/${comment_id}`,
       changeVoteBy
     )
     .catch(err => {
-      console.log(err);
+      return err;
     });
 };
 
 const patchArticleVotes = (article_id, changeVoteBy) => {
-  console.log("x");
-  axios
+  return axios
     .patch(
       `https://jay-nc-news-api.herokuapp.com/api/articles/${article_id}`,
       changeVoteBy
     )
+    .catch(() => {
+      const { inc_votes } = changeVoteBy;
+      const newValue = inc_votes > 0 ? -1 : 1;
+      const newVotesObj = { inc_votes: [newValue] };
+      return axios.patch(
+        `https://jay-nc-news-api.herokuapp.com/api/articles/${article_id}`,
+        newVotesObj
+      );
+    })
     .catch(err => {
-      console.log(err);
+      return err;
     });
 };
 

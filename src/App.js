@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./components/header-components/Header";
 import AllArticles from "./components/article-components/All-articles";
 import SingleArticle from "./components/article-components/Single-article";
+import Err from "./components/errors";
 import { getUsers } from "./api-requests";
 import { Router } from "@reach/router";
 import "./App.css";
@@ -26,14 +27,19 @@ class App extends React.Component {
           selectedUser={selectedUser}
         />
         <Router className="all-articles">
+          <AllArticles path="/" user={selectedUser.user} loggedIn={loggedIn} />
           <AllArticles
-            path="/"
-            user={this.state.selectedUser.user}
+            path="/articles/topics/:topic_slug"
+            user={selectedUser.user}
             loggedIn={loggedIn}
           />
-          <AllArticles path="/articles/topics/:topic_slug" />
           <AllArticles path="/articles/authors/:author" />
-          <SingleArticle path="/articles/:article_id" />
+          <SingleArticle
+            path="/articles/:article_id"
+            user={selectedUser.user}
+            loggedIn={loggedIn}
+          />
+          <Err default />
         </Router>
       </div>
     );
@@ -63,28 +69,19 @@ class App extends React.Component {
 
 export default App;
 
-// do votes
-/* errors for 
-- invalid comment
-- wrong article / comment id
--any incorrect page (default)
-
-- display topic comp
-- can add article to topic - topic is set to default of topic
-
+/*
+- fix topics rendering before error
 - add user page (no add article)
+- add topic page
 
-- can only add a comment when logged in 
-- can only delete comment if you're the user
-
--articles author defaults to 'you' if logged in as that user
 
 - date turned into 'x hours ago'
 
 - comments & articles have user images in them
 - user image rendered in header
 
-- can only vote once logged in
-- can only vote once
+- get sort working
+- 'X number of comments'
 
+- my profile?
 */

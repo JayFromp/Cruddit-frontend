@@ -13,6 +13,7 @@ class SingleArticle extends React.Component {
 
   render() {
     const { loading, err, article } = this.state;
+    const { user, loggedIn } = this.props;
     if (err) {
       return <Err />;
     }
@@ -22,13 +23,13 @@ class SingleArticle extends React.Component {
       return (
         <div className="single-article">
           <RenderArticle article={article} />
-          <Comments article={article} />
+          <Comments article={article} user={user} loggedIn={loggedIn} />
         </div>
       );
   }
   componentDidMount() {
     const articleId = this.props.article_id;
-    console.log("api call", articleId, "<<<<<");
+
     getArticle(articleId)
       .then(newArticle => {
         this.setState({

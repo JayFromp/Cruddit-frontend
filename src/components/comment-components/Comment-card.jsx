@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@reach/router";
 import { patchCommentVotes } from "../../api-requests";
 
 class CommentCard extends React.Component {
@@ -9,12 +10,20 @@ class CommentCard extends React.Component {
   };
 
   render() {
-    const { comment, deleteComment } = this.props;
+    const { comment, deleteComment, user, loggedIn } = this.props;
+    const { votes, userVotedUp, userVotedDown } = this.state;
+    const commentAuthor = user === comment.author ? "You" : comment.author;
     return (
       <p>
         <div className="comment-container">
           <div className="comment-card-header">
-            <div className="comment-card-header-text">{comment.author}</div>
+            <Link
+              to={`/articles/authors/${comment.author}`}
+              className="comment-card-header-text"
+              style={{ textDecoration: "none" }}
+            >
+              {commentAuthor}
+            </Link>
           </div>
 
           <div className="comment-card-header-main">
@@ -26,35 +35,41 @@ class CommentCard extends React.Component {
             <div className="comment-card-body-text"></div>
             {comment.body}
           </div>
-          <div className="comment-votes">
-            {comment.votes + this.state.votes}
-          </div>
-          <button
-            className="delete-comment"
-            onClick={() => {
-              deleteComment(comment);
-            }}
-          >
-            X
-          </button>
-          <button
-            className="vote-up"
-            value="add"
-            onClick={event => {
-              this.amendVotes(comment.comment_id, event.target.value);
-            }}
-          >
-            +
-          </button>
-          <button
-            className="vote-down"
-            value="subtract"
-            onClick={event => {
-              this.amendVotes(comment.comment_id, event.target.value);
-            }}
-          >
-            -
-          </button>
+          <div className="comment-votes">{comment.votes + votes}</div>
+          {user === comment.author && (
+            <button
+              className="delete-comment"
+              onClick={() => {
+                deleteComment(comment);
+              }}
+            >
+              X
+            </button>
+          )}
+          {loggedIn && (
+            <button
+              className="vote-up"
+              value="add"
+              disabled={userVotedUp}
+              onClick={event => {
+                this.amendVotes(comment.comment_id, event.target.value);
+              }}
+            >
+              +
+            </button>
+          )}
+          {loggedIn && (
+            <button
+              className="vote-down"
+              value="subtract"
+              disabled={userVotedDown}
+              onClick={event => {
+                this.amendVotes(comment.comment_id, event.target.value);
+              }}
+            >
+              -
+            </button>
+          )}
         </div>
       </p>
     );
@@ -63,14 +78,16 @@ class CommentCard extends React.Component {
     if (value === "add") {
       this.setState({
         votes: this.state.votes + 1,
-        userVotedUp: true
+        userVotedUp: true,
+        userVotedDown: false
       });
       patchCommentVotes(commentId, { inc_votes: 1 });
     }
     if (value === "subtract") {
       this.setState({
         votes: this.state.votes - 1,
-        userVotedDown: true
+        userVotedDown: true,
+        userVotedUp: false
       });
       patchCommentVotes(commentId, { inc_votes: -1 });
     }

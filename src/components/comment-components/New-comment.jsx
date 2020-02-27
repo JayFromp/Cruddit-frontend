@@ -31,9 +31,10 @@ class NewComment extends React.Component {
     this.setState({ comment: newComment });
   };
   handleSubmit = event => {
+    const { user } = this.props;
     event.preventDefault();
     const newComment = {
-      username: this.props.user,
+      username: user,
       body: this.state.comment
     };
 

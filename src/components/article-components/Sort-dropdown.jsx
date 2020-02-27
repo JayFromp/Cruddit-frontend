@@ -6,7 +6,7 @@ class SortDropdown extends React.Component {
     const { listOpen } = this.state;
     const { sort } = this.props;
     return (
-      <select
+      <div
         className="sort-dd-container"
         onMouseEnter={() => {
           this.setList(true);
@@ -15,42 +15,42 @@ class SortDropdown extends React.Component {
           this.setList(false);
         }}
       >
-        <h3 className={listOpen ? "sort-dd-headerHover" : "sort-header"}>
-          <h3 className={listOpen ? "dd-header-title-bold" : "sort-header"}>
+        <div className={listOpen ? "sort-dd-headerHover" : "sort-header"}>
+          <div className={listOpen ? "dd-header-title-bold" : "sort-header"}>
             sort by
-          </h3>
-        </h3>
+          </div>
+        </div>
         {listOpen && (
-          <main className="sort-list-body">
-            <body className="dd-list-items">
-              <option
+          <div className="sort-list-body">
+            <div className="dd-list-items">
+              <div
                 key="created_at"
                 value="created_at"
                 className="sort-list-item"
                 onClick={sort}
               >
                 Date created
-              </option>
-              <option
+              </div>
+              <div
                 key="comment_count"
                 value="comment_count"
                 className="sort-list-item"
                 onClick={sort}
               >
                 Comments
-              </option>
-              <option
+              </div>
+              <div
                 key="votes"
                 value="votes"
                 className="sort-list-item"
                 onClick={sort}
               >
                 Votes
-              </option>
-            </body>
-          </main>
+              </div>
+            </div>
+          </div>
         )}
-      </select>
+      </div>
     );
   }
   setList = value => {

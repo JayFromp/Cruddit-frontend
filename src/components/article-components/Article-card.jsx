@@ -10,50 +10,71 @@ class ArticleCard extends React.Component {
     userVotedDown: false
   };
   render() {
-    const { article, deleteArticle } = this.props;
-    const { votes } = this.state;
+    const { article, deleteArticle, user, loggedIn } = this.props;
+    const { votes, userVotedDown, userVotedUp } = this.state;
+    const articleAuthor = user === article.author ? "You" : article.author;
     return (
-      <p>
+      <p className="all-articles-container">
         <article className="article-container">
-          <h5 className="article-header"> {article.title}</h5>
-          <h5 className="article-header">
-            posted in
-            <Link to={`/articles/topics/${article.topic}`}>
+          <div className="article-header-main"> {article.title}</div>
+          <div className="article-header-sub">
+            posted in {""}
+            <Link
+              to={`/articles/topics/${article.topic}`}
+              style={{ textDecoration: "none" }}
+            >
               {article.topic}{" "}
             </Link>{" "}
             by{" "}
-            <Link to={`/articles/authors/${article.author}`}>
-              {article.author}
+            <Link
+              to={`/articles/authors/${article.author}`}
+              style={{ textDecoration: "none" }}
+            >
+              {articleAuthor}
             </Link>{" "}
-            on{" "}
-          </h5>
-          <time>{article.created_at} </time>
-          <aside className="article-votes">{article.votes + votes}</aside>
-          <button
-            className="delete-button"
-            onClick={() => deleteArticle(article)}
+            on {article.created_at}
+          </div>
+
+          <div className="article-votes-container">
+            <aside className="article-votes">{article.votes + votes}</aside>
+          </div>
+          {user === article.author && (
+            <button
+              className="delete-button"
+              onClick={() => deleteArticle(article)}
+            >
+              X
+            </button>
+          )}
+          {loggedIn && (
+            <button
+              className="article-vote-up"
+              value="add"
+              disabled={userVotedUp}
+              onClick={event =>
+                this.amendVotes(article.article_id, event.target.value)
+              }
+            >
+              +
+            </button>
+          )}
+          {loggedIn && (
+            <button
+              className="article-vote-down"
+              value="subtract"
+              disabled={userVotedDown}
+              onClick={event =>
+                this.amendVotes(article.article_id, event.target.value)
+              }
+            >
+              -
+            </button>
+          )}
+          <Link
+            className="article-body-container"
+            to={`/articles/${article.article_id}`}
+            style={{ textDecoration: "none" }}
           >
-            X
-          </button>
-          <button
-            className="article-vote-up"
-            value="add"
-            onClick={event =>
-              this.amendVotes(article.article_id, event.target.value)
-            }
-          >
-            +
-          </button>
-          <button
-            className="article-vote-down"
-            value="subtract"
-            onClick={event =>
-              this.amendVotes(article.article_id, event.target.value)
-            }
-          >
-            -
-          </button>
-          <Link to={`/articles/${article.article_id}`}>
             <body className="article-body">{article.body}</body>
           </Link>
         </article>
@@ -65,14 +86,16 @@ class ArticleCard extends React.Component {
     if (value === "add") {
       this.setState({
         votes: this.state.votes + 1,
-        userVotedUp: true
+        userVotedUp: true,
+        userVotedDown: false
       });
       patchArticleVotes(articleId, { inc_votes: 1 });
     }
     if (value === "subtract") {
       this.setState({
         votes: this.state.votes - 1,
-        userVotedDown: true
+        userVotedDown: true,
+        userVotedUp: false
       });
       patchArticleVotes(articleId, { inc_votes: -1 });
     }

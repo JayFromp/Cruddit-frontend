@@ -9,9 +9,10 @@ class NewArticle extends React.Component {
   };
 
   render() {
+    const { topic } = this.props;
     return (
       <div className="article-submit-container">
-        <form onSubmit={this.handleSubmit} className="article-submit-container">
+        <form onSubmit={this.handleSubmit} className="article-submit-form">
           <div className="new-article-header">Add new article</div>
           <p>
             <input
@@ -36,37 +37,41 @@ class NewArticle extends React.Component {
             ></input>
           </p>
           <p>
-            <select
-              name="topic"
-              onChange={this.handleInput}
-              required="please select option"
-            >
-              <option
-                selected
-                disabled
-                hidden
-                style={{ display: "none" }}
-                value=""
+            {!topic && (
+              <select
+                name="topic"
+                onChange={this.handleInput}
+                required="please select option"
               >
-                select topic
-              </option>
-              <option value="cooking">Cooking</option>
-              <option value="football">Football</option>
-              <option value="coding">Coding</option>
-            </select>
+                <option
+                  selected
+                  disabled
+                  hidden
+                  style={{ display: "none" }}
+                  value=""
+                >
+                  select topic
+                </option>
+                <option value="cooking">Cooking</option>
+                <option value="football">Football</option>
+                <option value="coding">Coding</option>
+              </select>
+            )}
           </p>
-          <button>add</button>
+          <button className="add-article-button">add</button>
         </form>
       </div>
     );
   }
 
   handleInput = event => {
-    const { user } = this.props;
+    const { user, topic } = this.props;
     const key = event.target.name;
     const newValue = event.target.value;
 
-    this.setState({ author: user, [key]: newValue });
+    topic
+      ? this.setState({ author: user, topic: topic, [key]: newValue })
+      : this.setState({ author: user, [key]: newValue });
   };
   handleSubmit = event => {
     event.preventDefault();
