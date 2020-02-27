@@ -25,8 +25,12 @@ class App extends React.Component {
           selectUser={this.selectUser}
           selectedUser={selectedUser}
         />
-        <Router>
-          <AllArticles path="/" />
+        <Router className="all-articles">
+          <AllArticles
+            path="/"
+            user={this.state.selectedUser.user}
+            loggedIn={loggedIn}
+          />
           <AllArticles path="/articles/topics/:topic_slug" />
           <AllArticles path="/articles/authors/:author" />
           <SingleArticle path="/articles/:article_id" />
@@ -59,4 +63,28 @@ class App extends React.Component {
 
 export default App;
 
-//Not found page - default
+// do votes
+/* errors for 
+- invalid comment
+- wrong article / comment id
+-any incorrect page (default)
+
+- display topic comp
+- can add article to topic - topic is set to default of topic
+
+- add user page (no add article)
+
+- can only add a comment when logged in 
+- can only delete comment if you're the user
+
+-articles author defaults to 'you' if logged in as that user
+
+- date turned into 'x hours ago'
+
+- comments & articles have user images in them
+- user image rendered in header
+
+- can only vote once logged in
+- can only vote once
+
+*/

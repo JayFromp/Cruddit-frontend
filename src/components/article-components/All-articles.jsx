@@ -1,7 +1,9 @@
 import React from "react";
+import NewArticle from "./New-article";
 import ArticlesList from "./Article-list";
 import LoadingArticles from "./Loading-articles";
-import { getArticles } from "../../api-requests";
+// import Err from "../errors";
+import { getArticles, postArticle, removeArticle } from "../../api-requests";
 import SortDropdown from "./Sort-dropdown";
 
 class AllArticles extends React.Component {
@@ -13,10 +15,23 @@ class AllArticles extends React.Component {
   };
 
   render() {
+    const { user, loggedIn } = this.props;
     const { articles, loading } = this.state;
     return (
       <div className="all-articles">
-        {loading ? <LoadingArticles /> : <ArticlesList articles={articles} />}
+        {loggedIn ? (
+          <NewArticle user={user} addArticle={this.addArticle} />
+        ) : (
+          <div>Please log in to add an article</div>
+        )}
+        {loading ? (
+          <LoadingArticles />
+        ) : (
+          <ArticlesList
+            articles={articles}
+            deleteArticle={this.deleteArticle}
+          />
+        )}
         <SortDropdown sort={this.sortArticles} />
       </div>
     );
@@ -60,6 +75,35 @@ class AllArticles extends React.Component {
       .catch(err => {
         this.setState({ err });
       });
+  };
+
+  addArticle = newArticle => {
+    console.log(newArticle);
+    postArticle(newArticle)
+      .then(newArticle => {
+        this.setState(currentState => {
+          return { articles: [newArticle, ...currentState.articles] };
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  deleteArticle = articleToDelete => {
+    // const user = this.props.user;
+    const { article_id, author } = articleToDelete;
+
+    // if (user === author) {
+    removeArticle(article_id);
+    const articles = [...this.state.articles];
+    const remainingArticles = articles.filter(article => {
+      return article !== articleToDelete;
+    });
+    this.setState({ articles: remainingArticles });
+    // } else {
+    //   return <Err />;
+    // }
   };
 }
 
