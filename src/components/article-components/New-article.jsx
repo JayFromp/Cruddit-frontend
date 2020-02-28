@@ -13,12 +13,12 @@ class NewArticle extends React.Component {
     return (
       <div className="article-submit-container">
         <form onSubmit={this.handleSubmit} className="article-submit-form">
-          <div className="new-article-header">Add new article</div>
+          <p className="new-article-header">Add new article</p>
           <p>
             <input
               className="new-article-title"
               type="text"
-              placeholder="title"
+              placeholder="article title"
               name="title"
               required="please add text"
               value={this.state.title}
@@ -42,6 +42,7 @@ class NewArticle extends React.Component {
                 name="topic"
                 onChange={this.handleInput}
                 required="please select option"
+                className="topic-select"
               >
                 <option
                   selected

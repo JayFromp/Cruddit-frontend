@@ -16,19 +16,39 @@ class ArticleCard extends React.Component {
     return (
       <p className="all-articles-container">
         <article className="article-container">
-          <div className="article-header-main"> {article.title}</div>
+          <Link
+            to={`/articles/${article.article_id}`}
+            className="article-header-main"
+            style={{
+              textDecoration: "none",
+              color: "grey"
+            }}
+          >
+            {" "}
+            {article.title}
+          </Link>
           <div className="article-header-sub">
             posted in {""}
             <Link
               to={`/articles/topics/${article.topic}`}
-              style={{ textDecoration: "none" }}
+              style={{
+                textDecoration: "none",
+                color: "grey",
+                fontWeight: "bold"
+              }}
+              className="sub-topic"
             >
               {article.topic}{" "}
             </Link>{" "}
             by{" "}
             <Link
               to={`/articles/authors/${article.author}`}
-              style={{ textDecoration: "none" }}
+              style={{
+                textDecoration: "none",
+                color: "grey",
+                fontWeight: "bold"
+              }}
+              className="sub-author"
             >
               {articleAuthor}
             </Link>{" "}

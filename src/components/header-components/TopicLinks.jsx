@@ -7,18 +7,21 @@ const TopicLinks = props => {
       <Link
         to={"/articles/topics/coding"}
         style={{ textDecoration: "none", color: "grey" }}
+        className="topics-nav-coding"
       >
         Coding{" "}
       </Link>
       <Link
         to={"/articles/topics/cooking"}
         style={{ textDecoration: "none", color: "grey" }}
+        className="topics-nav-cooking"
       >
         Cooking{" "}
       </Link>
       <Link
         to={"/articles/topics/football"}
         style={{ textDecoration: "none", color: "grey" }}
+        className="topics-nav-football"
       >
         Football
       </Link>

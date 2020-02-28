@@ -33,7 +33,7 @@ class AllArticles extends React.Component {
         ) : (
           <p className="please-login">Please log in to add an article & vote</p>
         )}
-
+        <SortDropdown sort={this.sortArticles} />
         {loading ? (
           <LoadingArticles />
         ) : (
@@ -44,8 +44,6 @@ class AllArticles extends React.Component {
             loggedIn={loggedIn}
           />
         )}
-
-        <SortDropdown sort={this.sortArticles} />
       </div>
     );
   }
