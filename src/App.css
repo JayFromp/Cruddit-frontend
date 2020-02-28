@@ -264,26 +264,40 @@
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
+  background-color: rgb(250, 173, 96);
+  color: rgb(92, 92, 92);
+  font-family: Sahitya;
+  font-size: 1em;
+  border: grey;
   width: 2em;
   height: 2em;
 }
 
+.delete-button:hover {
+  font-weight: bold;
+  border: thick;
+  border-color: grey;
+}
 .single-article-container {
   display: grid;
-  grid-template-columns: 6em 40em;
+  grid-template-columns: 7em 42em;
   grid-template-rows: 2em 1em 12em;
-  border: black;
-  padding: 2em;
+  background-color: rgb(250, 142, 92);
+  box-shadow: 10px 5px 5px rgb(245, 144, 86);
+  height: 2em;
+  margin-bottom: 15em;
 }
 
 .single-article-header {
-  color: blue;
+  color: grey;
+  font-size: 2em;
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 2;
 }
 .single-article-header-title {
+  background-color: hotpink;
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 1;
@@ -322,27 +336,37 @@
   grid-row-start: 3;
   grid-row-end: 4;
 }
+
+.all-comments {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 .comment-container {
   display: grid;
   grid-template-columns: 4em 25em;
   grid-template-rows: 3em 12em;
   grid-column-start: 2;
   grid-column-end: 3;
+  border-radius: 5%;
 }
 
 .comment-card-header {
-  background-color: cyan;
+  background-color: rgb(255, 211, 191);
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
 }
-.comment-card-header-text {
-  color: black;
+.comment-card-header-text-main {
+  color: grey;
 }
 
 .comment-card-header-main {
-  background-color: rgb(138, 223, 223);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(255, 211, 191);
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 1;
@@ -350,8 +374,11 @@
 }
 
 .comment-card-body {
-  color: blue;
-  background-color: cadetblue;
+  color: rgb(100, 100, 100);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(185, 226, 253);
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 2;
@@ -365,7 +392,8 @@
   grid-row-end: 2;
 }
 .comment-votes {
-  background-color: darkcyan;
+  color: grey;
+  background-color: rgb(187, 255, 255);
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
@@ -383,22 +411,16 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  font-size: 1em;
+
+  height: 1.2em;
   width: 6em;
 }
 
-.sort-dd-header {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  width: 6em;
-}
-.sort-header {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  width: 6em;
+.dd-list-items {
+  background-color: rgb(250, 173, 96);
+  font-size: 0.8em;
+  color: rgb(92, 92, 92);
 }
 
 .article-submit-container {
@@ -463,4 +485,31 @@
 .please-login {
   color: grey;
   font-size: 2em;
+}
+
+.topic-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  height: 10em;
+  width: auto;
+
+  color: grey;
+}
+
+.topic-text {
+  font-size: 4em;
+  color: grey;
+}
+.topic-background {
+  height: 16em;
+  margin-bottom: 4em;
+  border-radius: 2%;
+}
+
+.Loading {
+  color: grey;
 }

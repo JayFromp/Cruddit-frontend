@@ -16,7 +16,7 @@ class Comments extends React.Component {
         {loggedIn ? (
           <NewComment addComment={this.addComment} user={user} />
         ) : (
-          "Please log in to comment & vote"
+          "please log in to comment & vote..."
         )}
         <RenderComments
           comments={comments}

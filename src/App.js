@@ -80,8 +80,9 @@ export default App;
 - comments & articles have user images in them
 - user image rendered in header
 
-- get sort working
+- 'are you sure you wanna delete?
 - 'X number of comments'
+- custom columns either side for user and topic
 
 - my profile?
 */

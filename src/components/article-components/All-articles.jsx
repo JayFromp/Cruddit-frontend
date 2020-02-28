@@ -23,7 +23,7 @@ class AllArticles extends React.Component {
     return (
       <div className="all-articles">
         {author && <UserCard />}
-        {topic_slug && <TopicCard />}
+        {topic_slug && <TopicCard topic={topic_slug} />}
         {loggedIn ? (
           <NewArticle
             user={user}
@@ -31,7 +31,9 @@ class AllArticles extends React.Component {
             topic={topic_slug}
           />
         ) : (
-          <p className="please-login">Please log in to add an article & vote</p>
+          <p className="please-login">
+            Please log in to add an article & vote...
+          </p>
         )}
         <SortDropdown sort={this.sortArticles} />
         {loading ? (
@@ -75,9 +77,11 @@ class AllArticles extends React.Component {
   }
 
   sortArticles = event => {
+    console.log("sorting");
     event.persist();
 
-    const sortValue = event._targetInst.key;
+    const sortValue = event.target.value;
+    console.log(sortValue);
     const { topic_slug } = this.props;
     getArticles(sortValue, topic_slug)
       .then(sortedArticles => {

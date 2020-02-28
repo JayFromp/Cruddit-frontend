@@ -1,11 +1,19 @@
 import React from "react";
 
-const TopicCard = props => {
+const TopicCard = ({ topic }) => {
+  const topics = {
+    coding:
+      "https://nssdata.s3.amazonaws.com/images/galleries/18043/code-matrix.jpg",
+    cooking: "https://i.ytimg.com/vi/B7UmUX68KtE/maxresdefault.jpg",
+    football:
+      "https://www.shortlist.com/media/imager/201905/22744-posts.article_md.jpg"
+  };
   return (
-    <p>
+    <div className="topic-container">
       {" "}
-      <h1>TOPIC GOES HERE</h1>
-    </p>
+      <img src={topics[topic]} className="topic-background" />
+      {/* <div className="topic-text">{topic}</div> */}
+    </div>
   );
 };
 

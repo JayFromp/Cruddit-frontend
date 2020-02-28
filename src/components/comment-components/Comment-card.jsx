@@ -22,13 +22,24 @@ class CommentCard extends React.Component {
               className="comment-card-header-text"
               style={{ textDecoration: "none" }}
             >
-              {commentAuthor}
+              XXX
             </Link>
           </div>
 
           <div className="comment-card-header-main">
             <div className="comment-card-header-text-main">
-              {comment.created_at}
+              posted by{" "}
+              <Link
+                to={`/articles/authors/${comment.author}`}
+                style={{
+                  textDecoration: "none",
+                  color: "grey",
+                  fontWeight: "bold"
+                }}
+              >
+                {comment.author}
+              </Link>{" "}
+              on {comment.created_at}
             </div>
           </div>
           <div className="comment-card-body">
