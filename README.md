@@ -1,68 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+find a link to the hosted version of the project in the readme.
+find a link to the back-end repository of the project in the readme.
+find a link to the hosted version of the back-end project in the readme.
+## Cruddit App
 
-In the project directory, you can run:
+## Background
+Here at Northcoders we have been set the task of creating our own version of a popular online site. A page dedicated to different news, articles, topics... whatever you want really.
 
-### `npm start`
+This repo is the frontend of the app - the result of a previously finished backend api (Add repo link here), knowledge of the React framework, a week to timeframe to complete and a lot of coffee. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Enjoy.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Getting started
 
-### `npm test`
+To view an already hosted version of the app, please go to 'www.putyourlinkhere.com'
+Hosted backed - 'www.putyourlinkhere.com'
+Backend repository - 'www.putyourlinkhere.com'
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run locally:
+cd into nc-news
+to run locally, run the script 'npm start' which will open http://localhost:3000 in the browser.
 
-### `npm run build`
+## Navigation
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+All articles and comments are viewable before logging in. To add your own article, comment or vote, please sign in. Sign in is located in the top right corner and requires no password. Simply choose your user. Note: you can only delete articles/comments your user has posted. 
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+All articles are rendered in the homepage. 
+- To return home at any point, please use the 'Cruddit' link in the top left. 
+- To view a particular article and the associated comments, please click on the desired article. 
+- To view specific topics, please use the 3 topc links located at the top left, underneath the home link. 
+- To view an authors page and all articles they have written, please click on the user name, rendered in the article or comment card.
+- To sort articles, use the 'sort-by' dropdown, located on the top left of the articles. Articles can be sorted by date, comments or votes.
+- To vote use either + or - located on the left of each article/comment.
+- To delete a comment/article use the X located at the top left.
+- To add your own comment/ariticle please use the given input fields and fill in all necessary information
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
