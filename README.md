@@ -15,8 +15,8 @@ Hosted backed - 'https://jay-nc-news-api.herokuapp.com/api'
 Backend repository - 'https://github.com/JayFromp/Cruddit-backend' 
 
 To run locally:
-cd into nc-news
-to run locally, run the script 'npm start' which will open http://localhost:3000 in the browser.
+- cd into nc-news 
+- run the script 'npm start' which will open http://localhost:3000 in the browser.
 
 ## Navigation
 
