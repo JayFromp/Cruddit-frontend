@@ -1,7 +1,4 @@
 
-find a link to the hosted version of the project in the readme.
-find a link to the back-end repository of the project in the readme.
-find a link to the hosted version of the back-end project in the readme.
 ## Cruddit App
 
 ## Background
@@ -14,8 +11,8 @@ Enjoy.
 ## Getting started
 
 To view an already hosted version of the app, please go to 'www.putyourlinkhere.com'
-Hosted backed - 'www.putyourlinkhere.com'
-Backend repository - 'www.putyourlinkhere.com'
+Hosted backed - 'https://jay-nc-news-api.herokuapp.com/api'
+Backend repository - 'https://github.com/JayFromp/Cruddit-backend'
 
 To run locally:
 cd into nc-news
@@ -35,4 +32,14 @@ All articles are rendered in the homepage.
 - To delete a comment/article use the X located at the top left.
 - To add your own comment/ariticle please use the given input fields and fill in all necessary information
 
+## Built With
 
+React
+Reach-router
+Axios
+
+## Authors
+Jay Compson.
+
+## Acknowledgments
+A big thank you to all at Northcoders and the people who likely won't ever read this, but who have put the time into creating the libraries and frameworks which made this possible.
