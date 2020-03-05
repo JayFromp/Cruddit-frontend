@@ -1,53 +1,22 @@
 import React from "react";
 
-class LoginDropDown extends React.Component {
-  state = {
-    listOpen: false
-  };
-  render() {
-    const { listOpen } = this.state;
-    const { users, selectUser } = this.props;
-    return (
-      <div
-        className="login-container"
-        onMouseEnter={() => {
-          this.setList(true);
-        }}
-        onMouseLeave={() => {
-          this.setList(false);
-        }}
-      >
-        <div className="login-header-container">
-          <div className="login-header-title"></div>
-          Log in as
-        </div>
-        {listOpen && (
-          <div className="login-list-container">
-            <div className="login-list-items"></div>
-            {users.map(user => {
-              return (
-                <div
-                  className="login-list-item"
-                  onClick={() => {
-                    selectUser(user);
-                  }}
-                >
-                  {user.username}{" "}
-                </div>
-              );
-            })}
-          </div>
-        )}
-      </div>
-    );
-  }
-  setList = value => {
-    this.setState({ listOpen: value });
-  };
-}
+const LoginDropDown = ({ users, selectUser }) => {
+  return (
+    <section className="login-container">
+      <select className="login-list-items" onChange={selectUser}>
+        <option selected disabled hidden>
+          log in as...
+        </option>
+        {users.map(user => {
+          return (
+            <option className="login-list-item" value={user.username}>
+              {user.username}{" "}
+            </option>
+          );
+        })}
+      </select>
+    </section>
+  );
+};
 
 export default LoginDropDown;
-
-// needs a conteiner, header container & header title div (2)
-// on hover, invokes a function changing the boolean value of listOpen
-// needs a list container & list items div (2) which renders only when listopen is true

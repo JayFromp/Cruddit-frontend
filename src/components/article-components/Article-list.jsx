@@ -9,6 +9,7 @@ const ArticleList = ({ articles, deleteArticle, user, loggedIn }) => {
         deleteArticle={deleteArticle}
         user={user}
         loggedIn={loggedIn}
+        key={article.article_id}
       />
     );
   });

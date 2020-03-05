@@ -6,21 +6,33 @@ const TopicLinks = props => {
     <nav className="topics-nav">
       <Link
         to={"/articles/topics/coding"}
-        style={{ textDecoration: "none", color: "grey" }}
+        style={{
+          textDecoration: "none",
+          color: "lightGrey",
+          fontFamily: "Courier"
+        }}
         className="topics-nav-coding"
       >
-        Coding{" "}
+        Coding{"  "}
       </Link>
       <Link
         to={"/articles/topics/cooking"}
-        style={{ textDecoration: "none", color: "grey" }}
+        style={{
+          textDecoration: "none",
+          color: "lightGrey",
+          fontFamily: "Courier"
+        }}
         className="topics-nav-cooking"
       >
-        Cooking{" "}
+        Cooking{"  "}
       </Link>
       <Link
         to={"/articles/topics/football"}
-        style={{ textDecoration: "none", color: "grey" }}
+        style={{
+          textDecoration: "none",
+          color: "lightGrey",
+          fontFamily: "Courier"
+        }}
         className="topics-nav-football"
       >
         Football

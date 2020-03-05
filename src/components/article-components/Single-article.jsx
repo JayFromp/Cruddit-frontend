@@ -21,7 +21,7 @@ class SingleArticle extends React.Component {
       return <p>loading article...</p>;
     } else
       return (
-        <div className="single-article">
+        <div>
           <RenderArticle article={article} />
           <Comments article={article} user={user} loggedIn={loggedIn} />
         </div>

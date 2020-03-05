@@ -6,14 +6,14 @@ const RenderComments = props => {
 
   return comments.map(comment => {
     return (
-      <div className="all-comments">
+      <section className="all-comments">
         <CommentCard
           comment={comment}
           deleteComment={deleteComment}
           user={user}
           loggedIn={loggedIn}
         />
-      </div>
+      </section>
     );
   });
 };

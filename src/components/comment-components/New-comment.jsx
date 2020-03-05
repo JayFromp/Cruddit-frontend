@@ -11,18 +11,19 @@ class NewComment extends React.Component {
         className="
           commentSubmitContainer"
       >
-        <label>
-          {" "}
-          <input
-            placeholder="write a comment"
-            type="text"
-            name="commentInput"
-            required="please add text"
-            value={this.state.comment}
-            onChange={this.handleInput}
-          />
-        </label>
-        <button className="commentButton">comment</button>
+        {" "}
+        <textarea
+          placeholder="Write whatever you fancy"
+          type="text"
+          name="commentInput"
+          required="please add text"
+          value={this.state.comment}
+          onChange={this.handleInput}
+          className="comment-submit-text"
+        />
+        <section>
+          <button className="commentButton">comment</button>
+        </section>
       </form>
     );
   }
@@ -32,9 +33,10 @@ class NewComment extends React.Component {
   };
   handleSubmit = event => {
     const { user } = this.props;
+
     event.preventDefault();
     const newComment = {
-      username: user,
+      username: user.user,
       body: this.state.comment
     };
 

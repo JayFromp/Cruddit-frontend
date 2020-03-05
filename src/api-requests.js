@@ -5,9 +5,6 @@ const getUsers = () => {
     .get(`https://jay-nc-news-api.herokuapp.com/api/users`)
     .then(({ data: { users } }) => {
       return users;
-    })
-    .catch(err => {
-      return err;
     });
 };
 
@@ -22,21 +19,14 @@ const getArticles = (sortValue, selectedTopic, selectedAuthor) => {
     })
     .then(({ data: { articles } }) => {
       return articles;
-    })
-    .catch(err => {
-      return err;
     });
 };
 
 const getArticle = articleId => {
-  console.log(articleId, "api value passed in");
   return axios
     .get(`https://jay-nc-news-api.herokuapp.com/api/articles/${articleId}`)
     .then(({ data: { article } }) => {
       return article;
-    })
-    .catch(err => {
-      return err;
     });
 };
 
@@ -44,11 +34,7 @@ const postArticle = article => {
   return axios
     .post(`https://jay-nc-news-api.herokuapp.com/api/articles`, article)
     .then(({ data }) => {
-      console.log("data", data);
       return data.newArticle[0];
-    })
-    .catch(err => {
-      return err;
     });
 };
 
@@ -72,9 +58,6 @@ const getComments = articleId => {
     )
     .then(({ data }) => {
       return data.comments;
-    })
-    .catch(err => {
-      return err;
     });
 };
 
@@ -86,21 +69,14 @@ const postComment = (articleId, newComment) => {
     )
     .then(({ data }) => {
       return data.comment;
-    })
-    .catch(err => {
-      return err;
     });
 };
 
 const patchCommentVotes = (comment_id, changeVoteBy) => {
-  return axios
-    .patch(
-      `https://jay-nc-news-api.herokuapp.com/api/comments/${comment_id}`,
-      changeVoteBy
-    )
-    .catch(err => {
-      return err;
-    });
+  return axios.patch(
+    `https://jay-nc-news-api.herokuapp.com/api/comments/${comment_id}`,
+    changeVoteBy
+  );
 };
 
 const patchArticleVotes = (article_id, changeVoteBy) => {

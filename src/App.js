@@ -9,7 +9,7 @@ import "./App.css";
 
 class App extends React.Component {
   state = {
-    users: null,
+    users: [],
     loggedIn: false,
     selectedUser: { user: null, avatar: null },
     error: null
@@ -33,10 +33,14 @@ class App extends React.Component {
             user={selectedUser.user}
             loggedIn={loggedIn}
           />
-          <AllArticles path="/articles/authors/:author" />
+          <AllArticles
+            path="/articles/authors/:author"
+            users={users}
+            loggedIn={loggedIn}
+          />
           <SingleArticle
             path="/articles/:article_id"
-            user={selectedUser.user}
+            user={selectedUser}
             loggedIn={loggedIn}
           />
           <Err default />
@@ -44,6 +48,7 @@ class App extends React.Component {
       </div>
     );
   }
+
   componentDidMount() {
     getUsers()
       .then(allUsers => {
@@ -54,11 +59,13 @@ class App extends React.Component {
       });
   }
 
-  selectUser = user => {
-    const { username, avatar_url } = user;
+  selectUser = event => {
+    event.persist();
+    const username = event.target.value;
+
     this.setState({
       loggedIn: true,
-      selectedUser: { user: username, avatar: avatar_url }
+      selectedUser: { user: username }
     });
   };
 
@@ -70,19 +77,10 @@ class App extends React.Component {
 export default App;
 
 /*
-- fix topics rendering before error
-- add user page (no add article)
-- add topic page
-
-
-- date turned into 'x hours ago'
-
-- comments & articles have user images in them
-- user image rendered in header
-
-- 'are you sure you wanna delete?
-- 'X number of comments'
-- custom columns either side for user and topic
-
-- my profile?
+- mobile responsiveness
+- lines through headers
+- delete button overwrites header in mobile view
+- media queries not effecting font size
+- articles grow too big when user is able to vote
+- header grows when you log in
 */

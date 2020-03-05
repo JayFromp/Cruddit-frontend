@@ -11,7 +11,7 @@ class NewArticle extends React.Component {
   render() {
     const { topic } = this.props;
     return (
-      <div className="article-submit-container">
+      <section className="article-submit-container">
         <form onSubmit={this.handleSubmit} className="article-submit-form">
           <p className="new-article-header">Add new article</p>
           <p>
@@ -26,7 +26,7 @@ class NewArticle extends React.Component {
             ></input>
           </p>
           <p>
-            <input
+            <textarea
               className="new-article-body"
               type="text"
               placeholder="what would you like to say?"
@@ -34,7 +34,7 @@ class NewArticle extends React.Component {
               required="please add text"
               value={this.state.body}
               onChange={this.handleInput}
-            ></input>
+            ></textarea>
           </p>
           <p>
             {!topic && (
@@ -61,7 +61,7 @@ class NewArticle extends React.Component {
           </p>
           <button className="add-article-button">add</button>
         </form>
-      </div>
+      </section>
     );
   }
 

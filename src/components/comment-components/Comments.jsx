@@ -11,20 +11,27 @@ class Comments extends React.Component {
   render() {
     const { comments } = this.state;
     const { user, loggedIn } = this.props;
+
     return (
-      <div>
+      <section>
+        {loggedIn && comments.length === 0 && (
+          <body className="grey">Be the first to add a comment!</body>
+        )}
         {loggedIn ? (
           <NewComment addComment={this.addComment} user={user} />
         ) : (
-          "please log in to comment & vote..."
+          <body className="please-login">
+            please log in to comment & vote...
+          </body>
         )}
+        <aside className="no-of-comments">Comments: {comments.length} </aside>
         <RenderComments
           comments={comments}
           deleteComment={this.deleteComment}
           user={user}
           loggedIn={loggedIn}
         />
-      </div>
+      </section>
     );
   }
   componentDidMount() {
@@ -36,7 +43,6 @@ class Comments extends React.Component {
 
   addComment = newComment => {
     const { article_id } = this.props.article;
-    console.log(article_id);
 
     postComment(article_id, newComment).then(addedComment => {
       this.setState(currentState => {
@@ -46,11 +52,14 @@ class Comments extends React.Component {
   };
 
   deleteComment = commentToDelete => {
-    removeComment(commentToDelete);
-    const remainingComments = this.state.comments.filter(comment => {
-      return comment !== commentToDelete;
+    removeComment(commentToDelete).then(() => {
+      this.setState(currentState => {
+        const filteredComments = currentState.comments.filter(comment => {
+          return comment !== commentToDelete;
+        });
+        return { comments: filteredComments };
+      });
     });
-    this.setState({ comments: remainingComments });
   };
 }
 
