@@ -34,9 +34,9 @@ All articles are rendered in the homepage.
 
 ## Built With
 
-React
-Reach-router
-Axios
+React  
+Reach-router  
+Axios  
 
 ## Authors
 Jay Compson.
