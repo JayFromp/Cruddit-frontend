@@ -10,9 +10,9 @@ Enjoy.
 
 ## Getting started
 
-To view an already hosted version of the app, please go to 'www.putyourlinkhere.com'
-Hosted backed - 'https://jay-nc-news-api.herokuapp.com/api'
-Backend repository - 'https://github.com/JayFromp/Cruddit-backend'
+To view an already hosted version of the app, please go to 'www.putyourlinkhere.com'  
+Hosted backed - 'https://jay-nc-news-api.herokuapp.com/api'  
+Backend repository - 'https://github.com/JayFromp/Cruddit-backend' 
 
 To run locally:
 cd into nc-news
