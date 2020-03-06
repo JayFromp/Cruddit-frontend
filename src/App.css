@@ -195,114 +195,6 @@
   grid-row-end: 2;
 }
 
-@media only screen and (max-width: 400px) {
-  .topic-text {
-    font-size: 5em;
-
-    font-family: impact;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .App {
-    display: grid;
-    grid-template-columns: 5% 90% 5%;
-    grid-template-rows: 3em 3em auto;
-    text-align: center;
-    min-height: 100vh;
-    min-width: 100vw;
-    width: 100vw;
-  }
-  .display-userName {
-    color: grey;
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    font-size: 1em;
-    max-width: 5em;
-    margin-right: 0.5em;
-  }
-  .please-login {
-    color: rgb(208, 208, 208);
-    font-size: 0.5em;
-    font-family: Verdana;
-  }
-  .please-login2 {
-    color: rgb(208, 208, 208);
-    font-size: 0.5em;
-    font-family: Verdana;
-  }
-  .article-header-main {
-    color: white;
-    font-size: 0.1em;
-  }
-  .article-header-main {
-    color: white;
-    font-size: 0.1em;
-    border: white;
-    border-width: 2em;
-  }
-  .article-container {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    display: grid;
-    grid-template-columns: 8fr 92fr;
-    grid-template-rows: 15fr 10fr 65fr 5fr 5fr;
-    font-weight: normal;
-    background-color: rgb(70, 70, 70);
-    margin: 1%;
-  }
-  .article-header-sub {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    border: rgb(255, 255, 255);
-    border-width: thick;
-    background-color: rgb(255, 255, 255);
-    height: 100%;
-    font-size: 0.1em;
-    color: black;
-  }
-  .all-articles-container {
-    font-size: 0.5fr;
-  }
-  .topic-container {
-    font-size: 0.8em;
-    margin-bottom: 5em;
-  }
-  .topic-text {
-    font-size: 10em;
-  }
-  .delete-button-article {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    background-color: white;
-
-    color: black;
-    font-family: Big Caslon;
-    font-size: 0.5em;
-    border: grey;
-    width: 0.3em;
-    height: 0.3em;
-  }
-  .author-name {
-    font-size: 0.5em;
-  }
-  .user-container {
-    font-size: 0.4em;
-    margin-bottom: 5%;
-  }
-  .single-article-header {
-    font-size: 1em;
-  }
-  .commentSubmitContainer {
-    margin-top: 15em;
-  }
-}
 .all-articles-container {
   font-size: 0.5fr;
   max-height: 10fr;
@@ -538,7 +430,7 @@
   grid-column-start: 2;
   grid-column-end: 3;
   height: 10%;
-
+  margin-top: 10em;
   margin-bottom: 8em;
   max-height: 10fr;
   min-height: 10fr;
@@ -854,9 +746,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* display: grid;
-  grid-template-columns: 10fr 10fr 10fr;
-  grid-template-rows: 3fr 3fr; */
+
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 2;
@@ -889,4 +779,112 @@
 .addComment {
   color: white;
   font-family: Verdana;
+}
+
+@media screen and (max-width: 400px) {
+  .App {
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
+    grid-template-rows: 3em 3em auto;
+    text-align: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    width: 100vw;
+  }
+  .Header {
+    margin-bottom: 5em;
+  }
+  .topic-text {
+    font-size: 5em;
+
+    font-family: impact;
+  }
+  .display-userName {
+    color: grey;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    font-size: 1em;
+    max-width: 5em;
+    margin-right: 0.5em;
+  }
+  .please-login {
+    color: rgb(208, 208, 208);
+    font-size: 0.5em;
+    font-family: Verdana;
+  }
+  .please-login2 {
+    color: rgb(208, 208, 208);
+    font-size: 0.5em;
+    font-family: Verdana;
+  }
+  .article-header-main {
+    color: white;
+    font-size: 0.1em;
+  }
+  .article-header-main {
+    color: white;
+    font-size: 0.1em;
+    border: white;
+    height: 3em;
+  }
+  .article-container {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: 8fr 92fr;
+    grid-template-rows: 15fr 10fr 65fr 5fr 5fr;
+    font-weight: normal;
+    background-color: rgb(70, 70, 70);
+    margin: 1%;
+  }
+  .article-header-sub {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    font-size: 0.1em;
+    color: black;
+  }
+  .all-articles-container {
+    font-size: 0.5fr;
+  }
+  .topic-container {
+    font-size: 0.8em;
+    margin-bottom: 5em;
+  }
+  .topic-text {
+    font-size: 10em;
+  }
+  .delete-button-article {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: white;
+
+    color: black;
+    font-family: Big Caslon;
+    font-size: 0.5em;
+    border: grey;
+    width: 0.3em;
+    height: 0.3em;
+  }
+  .author-name {
+    font-size: 0.5em;
+  }
+  .user-container {
+    font-size: 0.4em;
+    margin-bottom: 5%;
+  }
+  .single-article-header {
+    font-size: 1em;
+  }
+  .commentSubmitContainer {
+    margin-top: 15em;
+  }
 }

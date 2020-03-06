@@ -75,10 +75,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-/*
-- lines through headers & comments
-- delete button overwrites header in mobile view
-- single article too long
-- issue with git push, maybe because of the updated readme that hasn't been pulled
-*/
