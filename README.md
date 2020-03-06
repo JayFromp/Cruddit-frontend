@@ -10,7 +10,7 @@ Enjoy.
 
 ## Getting started
 
-To view an already hosted version of the app, please go to 'www.putyourlinkhere.com'  
+To view an already hosted version of the app, please go to 'https://upbeat-pasteur-0104d1.netlify.com/'  
 Hosted backed - 'https://jay-nc-news-api.herokuapp.com/api'  
 Backend repository - 'https://github.com/JayFromp/Cruddit-backend' 
 
