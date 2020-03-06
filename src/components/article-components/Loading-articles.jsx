@@ -9,7 +9,7 @@ const LoadingArticles = () => {
         animation="grow"
         style={{ color: "black" }}
       />
-      <h1 className="loading">loading articles</h1>
+      <h1 className="Loading">loading articles...</h1>
     </section>
   );
 };

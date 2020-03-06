@@ -1,7 +1,6 @@
 import React from "react";
 
 const Err = ({ error }) => {
-  console.log("error", error);
   return (
     <section className="error">
       <h1>{error.response.status} That page doesn't exist. Sorry. </h1>

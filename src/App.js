@@ -77,10 +77,8 @@ class App extends React.Component {
 export default App;
 
 /*
-- mobile responsiveness
-- lines through headers
+- lines through headers & comments
 - delete button overwrites header in mobile view
-- media queries not effecting font size
-- articles grow too big when user is able to vote
-- header grows when you log in
+- single article too long
+- issue with git push, maybe because of the updated readme that hasn't been pulled
 */

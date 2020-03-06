@@ -135,12 +135,17 @@
 }
 
 .logOut {
-  color: rgb(102, 101, 101);
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  color: white;
   font-size: 1em;
   border: grey;
   border-radius: 2%;
   background-color: rgb(77, 77, 77);
-  width: 1fr;
+  max-width: 5em;
+  margin-top: 0.5em;
 }
 
 .logOut-container {
@@ -162,13 +167,13 @@
 .loggedIn {
   display: flex;
   flex-direction: column;
-
   position: relative;
   width: 1fr;
-  grid-row-start: 2;
-  grid-row-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
   grid-column-start: 3;
   grid-column-end: 4;
+  margin-right: 1.6em;
 }
 
 .display-userName {
@@ -177,6 +182,9 @@
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 2;
+  max-width: 5em;
+  height: 1em;
+  margin-right: 0.5em;
 }
 .user-avatar {
   height: 3em;
@@ -195,7 +203,7 @@
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media screen and (max-width: 400px) {
   .App {
     display: grid;
     grid-template-columns: 5% 90% 5%;
@@ -204,6 +212,16 @@
     min-height: 100vh;
     min-width: 100vw;
     width: 100vw;
+  }
+  .display-userName {
+    color: grey;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    font-size: 1em;
+    max-width: 5em;
+    margin-right: 0.5em;
   }
   .please-login {
     color: rgb(208, 208, 208);
@@ -222,6 +240,8 @@
   .article-header-main {
     color: white;
     font-size: 0.1em;
+    border: white;
+    border-width: 2em;
   }
   .article-container {
     grid-column-start: 2;
@@ -249,10 +269,38 @@
     font-size: 0.5fr;
   }
   .topic-container {
-    font-size: 10em;
+    font-size: 0.8em;
+    margin-bottom: 5em;
   }
   .topic-text {
     font-size: 10em;
+  }
+  .delete-button-article {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: white;
+
+    color: black;
+    font-family: Big Caslon;
+    font-size: 0.5em;
+    border: grey;
+    width: 0.3em;
+    height: 0.3em;
+  }
+  .author-name {
+    font-size: 0.5em;
+  }
+  .user-container {
+    font-size: 0.4em;
+    margin-bottom: 5%;
+  }
+  .single-article-header {
+    font-size: 1em;
+  }
+  .commentSubmitContainer {
+    margin-top: 15em;
   }
 }
 .all-articles-container {
@@ -367,7 +415,7 @@
   font-size: 1.8em;
   font-weight: bold;
   font-family: Big Caslon;
-  width: 3%;
+  width: 0.5em;
   height: 2%;
   grid-column-start: 1;
   grid-column-end: 2;
@@ -379,12 +427,14 @@
 }
 
 .article-vote-down {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   color: grey;
   background-color: rgb(70, 70, 70);
   border: grey;
-  font-size: 1.8em;
+  font-size: 2em;
   font-weight: bold;
-  border-radius: 5%;
   font-family: Big Caslon;
   width: 3%;
   height: 2%;
@@ -404,7 +454,7 @@
   font-size: 1.2em;
   font-weight: bold;
   font-family: Big Caslon;
-  width: 3.4em;
+  width: 0.5em;
   height: 0.9em;
   grid-column-start: 1;
   grid-column-end: 2;
@@ -418,9 +468,9 @@
   border: grey;
   font-size: 1.2em;
   font-weight: bold;
-  border-radius: 5%;
+
   font-family: Big Caslon;
-  width: 3.4em;
+  width: 0.5em;
   height: 0.9em;
   grid-column-start: 1;
   grid-column-end: 2;
@@ -433,12 +483,14 @@
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 3;
-  width: 5.3em;
+  width: 0.5em;
   height: 2em;
   color: black;
+  font-weight: bold;
   background-color: rgb(212, 212, 212);
   border: grey;
   font-size: 0.8em;
+  margin-right: 1em;
 }
 
 .delete-button {
@@ -482,11 +534,12 @@
   justify-content: center;
   display: grid;
   grid-template-columns: 5% 95%;
-  grid-template-rows: 20% 15% 100%;
+  grid-template-rows: 25% 15% 100%;
   grid-column-start: 2;
   grid-column-end: 3;
   height: 10%;
-  margin-bottom: 13em;
+
+  margin-bottom: 8em;
   max-height: 10fr;
   min-height: 10fr;
 }
@@ -510,7 +563,8 @@
   grid-row-start: 1;
   grid-row-end: 2;
   font-family: Big Caslon;
-  font-size: 1em;
+  font-size: 0.75em;
+  margin-bottom: 3em;
 }
 .single-article-subHeader {
   display: flex;
@@ -645,6 +699,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 0.5em;
 }
 
 .sort-dd-container {
@@ -678,6 +733,7 @@
   justify-content: center;
   background-color: rgb(117, 117, 117);
   border-radius: 5%;
+
   color: white;
 }
 
@@ -737,6 +793,7 @@
   color: rgb(208, 208, 208);
   font-size: 2em;
   font-family: Verdana;
+  margin-bottom: 5em;
 }
 
 .topic-container {
@@ -783,9 +840,10 @@
   background-color: rgb(117, 117, 117);
   border: grey;
   color: white;
+  margin-bottom: 2em;
 }
 .Loading {
-  color: grey;
+  color: white;
 }
 
 .grey {
@@ -826,4 +884,9 @@
   font-size: 8em;
   color: grey;
   font-family: impact;
+}
+
+.addComment {
+  color: white;
+  font-family: Verdana;
 }

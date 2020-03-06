@@ -12,6 +12,7 @@ class NewComment extends React.Component {
           commentSubmitContainer"
       >
         {" "}
+        <div className="addComment">add a comment...</div>
         <textarea
           placeholder="Write whatever you fancy"
           type="text"

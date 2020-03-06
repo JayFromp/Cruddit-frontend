@@ -20,8 +20,6 @@ class AllArticles extends React.Component {
     const { user, loggedIn, topic_slug, author, users } = this.props;
     const { articles, loading, error } = this.state;
     if (error) {
-      console.log(error.response, "error is here");
-
       return <Err error={error} />;
     }
     if (loading) {
